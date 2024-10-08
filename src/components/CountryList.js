@@ -11,13 +11,12 @@ const CountryList = () => {
 
   return (
     <div className="country-list-container">
-      {countries.length > 0 ? (
+      {countries.length > 0 &&
         countries.map((country) => (
           <CountryCard key={country.cca3} country={country} />
         ))
-      ) : (
-        <p>No countries found</p>
-      )}
+      
+      }
     </div>
   );
 };
