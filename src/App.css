@@ -1,38 +1,147 @@
-.App {
-  text-align: center;
+
+.main-container {
+ /* Center items vertically */
+  height: 100vh; /* Full viewport height */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.search-container {
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  justify-content: center;   /* Space between input and icon */
+  /* Border around the container */
+  border-radius: 50px; /* Rounded corners */
+  width: 100%; /* Full width */
+  max-width: 400px; /* Maximum width */
+  padding-left: 10px; /* Padding on the left */
+  box-shadow: none; /* Default shadow */
+  transition: box-shadow 0.3s; /* Transition effect for shadow */
+  margin: 0 auto;
+  padding-top: 5rem;
+  padding-bottom: 2em;
+}
+
+
+.search-input {
+  flex: 1; /* Fill the available space */
+  border: 1px solid gray; /* No border for the input */
+  outline: none; /* Remove outline */
+  padding: 15px; /* Padding inside the input */
+  font-size: 16px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+ 
+  
+}
+
+.search-icon {
+  background-color: #e63946; /* Background color for the icon */
+  color: white; /* Icon color */
+  display: flex; /* Flex to center icon */
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+  min-width: 50px; /* Minimum width for icon */
+  height: 50px; /* Height for icon */
+  border-radius: 0 50px 50px 0; /* Rounded right corners */
+  cursor: pointer; /* Change cursor on hover */
+}
+
+.country-list-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 20px auto;
+  max-width: 1200px; /* Maximum width for the card container */
+ /* Set background color */
+}
+
+/* Card layout for three cards in a row */
+.country-card {
+  width: 30%; /* Each card takes up 30% of the container */
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 10px 0;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.country-card:hover {
+  transform: scale(1.05); /* Slight zoom on hover */
+}
+.country-card-detail-container{
+ display: flex;
+ justify-content: center;
+}
+
+.flag-image {
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+.loader-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.7);
+  /* Adjust the alpha value for transparency */
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  z-index: 9999;
+  /* Ensure the loader is on top of other elements */
 }
 
-.App-link {
-  color: #61dafb;
-}
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Style for the loader div */
+
+.loader {
+  border: 8px solid #f3f3f3;
+  /* Light gray border */
+  border-top: 8px solid #3498db;
+  /* Blue border for animation */
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+  /* Rotate animation */
+}
+.error{
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+}
+@keyframes spin {
+  0% {
+      transform: rotate(0deg);
   }
-  to {
-    transform: rotate(360deg);
+  100% {
+      transform: rotate(360deg);
+  }
+}
+
+
+
+/* Responsive layout for smaller screens */
+@media (max-width: 768px) {
+  .country-card {
+    width: 45%;
+     /* Adjust the width to two cards per row for tablets */
+  }
+  .country-list-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+}
+
+@media (max-width: 480px) {
+  .country-card {
+    width: 100%; /* Adjust the width to one card per row for mobile */
   }
 }
